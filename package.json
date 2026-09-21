@@ -1,0 +1,9 @@
+{
+  "name": "lash-adhesive-climate-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A free lash-room temperature and humidity reference tool for professional lash artists.",
+  "scripts": {
+    "test": "node --test calculator.test.mjs"
+  }
+}
