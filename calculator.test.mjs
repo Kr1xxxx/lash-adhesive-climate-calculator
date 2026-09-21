@@ -58,6 +58,13 @@ test('describes warm and humid conditions as a faster tendency', () => {
   assert.match(result.actions.pace, /less placement time/i);
 });
 
+test('supports the 1s option with its own placement guidance', () => {
+  const result = climate.evaluate({ temperatureC: 25, humidity: 50, speed: '1' });
+  assert.equal(result.reading.speed, '1');
+  assert.match(result.actions.pace, /1s/);
+  assert.match(result.actions.pace, /most placement time/i);
+});
+
 test('describes mixed warm and dry readings without contradictory certainty', () => {
   const result = climate.evaluate({ temperatureC: 28, humidity: 30, speed: '0.5' });
   assert.equal(result.level, 'wide');
@@ -74,5 +81,5 @@ test('flags readings outside the verified product range', () => {
 test('rejects values outside the control limits and unsupported speeds', () => {
   assert.throws(() => climate.evaluate({ temperatureC: 9, humidity: 50, speed: '0.5' }), /temperature/i);
   assert.throws(() => climate.evaluate({ temperatureC: 25, humidity: 91, speed: '0.5' }), /humidity/i);
-  assert.throws(() => climate.evaluate({ temperatureC: 25, humidity: 50, speed: '1.0' }), /speed/i);
+  assert.throws(() => climate.evaluate({ temperatureC: 25, humidity: 50, speed: '0.8' }), /speed/i);
 });
