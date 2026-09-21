@@ -40,7 +40,7 @@ Open index.html directly, or start a simple local server:
 
     python3 -m http.server 8000
 
-Then visit http://localhost:8000.
+After the command starts, open `http://localhost:8000` in a browser on the same computer. This address is only for a local preview; use the live COMELYLASH calculator link above for the public tool.
 
 ## Test
 
