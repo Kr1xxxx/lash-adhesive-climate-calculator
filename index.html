@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lash Adhesive Climate Calculator | COMELYLASH</title>
+  <meta name="description" content="Enter lash-room temperature and humidity to understand likely adhesive curing behavior and get practical setup guidance for professional lash application.">
+  <link rel="canonical" href="https://comelylash.com/pages/lash-adhesive-climate-calculator">
+  <meta property="og:title" content="Lash Adhesive Climate Calculator | COMELYLASH">
+  <meta property="og:description" content="A free temperature and humidity reference tool for professional lash artists.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://comelylash.com/pages/lash-adhesive-climate-calculator">
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body class="section-comely-climate-calculator">
+<section class="comely-climate" data-comely-climate-calculator data-result-level="balanced">
+  <div class="comely-climate__shell">
+    <nav class="comely-climate__breadcrumb" aria-label="Breadcrumb">
+      <a href="https://comelylash.com/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Professional tools</span>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Climate calculator</span>
+    </nav>
+
+    <header class="comely-climate__hero">
+      <p class="comely-climate__eyebrow">PRO TOOL · FREE TO USE</p>
+      <h1>Lash Adhesive Climate Calculator</h1>
+      <p class="comely-climate__intro">Enter your lash-room temperature and humidity to understand how the environment may affect adhesive curing before your next set.</p>
+      <p class="comely-climate__range-note">Built around the verified COMELYLASH All-Climate working range: <strong>18–28°C / 25%–75% RH</strong>.</p>
+    </header>
+
+    <div class="comely-climate__tool" aria-label="Lash adhesive climate calculator">
+      <div class="comely-climate__controls">
+        <div class="comely-climate__card-heading">
+          <p class="comely-climate__step">01</p>
+          <div>
+            <h2>Enter your room conditions</h2>
+            <p>Use a digital hygrometer reading taken near your lash bed.</p>
+          </div>
+        </div>
+
+        <div class="comely-climate__field">
+          <div class="comely-climate__field-top">
+            <label for="ClimateTemperatureNumber-github">Room temperature</label>
+            <div class="comely-climate__temperature-entry">
+              <input id="ClimateTemperatureNumber-github" type="number" min="10" max="35" step="1" value="25" inputmode="numeric" data-temperature-number aria-describedby="ClimateTemperatureHelp-github">
+              <span data-temperature-suffix>°C</span>
+            </div>
+          </div>
+          <div class="comely-climate__unit-toggle" aria-label="Temperature unit">
+            <button type="button" data-temperature-unit="C" aria-pressed="true">°C</button>
+            <button type="button" data-temperature-unit="F" aria-pressed="false">°F</button>
+          </div>
+          <input id="ClimateTemperature-github" class="comely-climate__range" type="range" min="10" max="35" step="1" value="25" data-climate-temperature aria-label="Room temperature slider in degrees Celsius" aria-describedby="ClimateTemperatureHelp-github">
+          <div class="comely-climate__scale" id="ClimateTemperatureHelp-github"><span data-temperature-scale-min>10°C</span><span data-temperature-scale-max>35°C</span></div>
+        </div>
+
+        <div class="comely-climate__field">
+          <div class="comely-climate__field-top">
+            <label for="ClimateHumidity-github">Relative humidity</label>
+            <output id="ClimateHumidityOutput-github" for="ClimateHumidity-github" data-humidity-output>50% RH</output>
+          </div>
+          <input id="ClimateHumidity-github" class="comely-climate__range" type="range" min="10" max="90" step="1" value="50" data-climate-humidity aria-describedby="ClimateHumidityHelp-github">
+          <div class="comely-climate__scale" id="ClimateHumidityHelp-github"><span>10% RH</span><span>90% RH</span></div>
+        </div>
+
+        <fieldset class="comely-climate__field comely-climate__speed">
+          <legend>Adhesive setting time</legend>
+          <div class="comely-climate__speed-options">
+            <label>
+              <input type="radio" name="climate-speed" value="0.3">
+              <span><strong>0.3s</strong><small>Very fast</small></span>
+            </label>
+            <label>
+              <input type="radio" name="climate-speed" value="0.5" checked>
+              <span><strong>0.5s</strong><small>Fast</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <p class="comely-climate__control-note"><strong>Use actual room readings.</strong> Outdoor weather and phone weather apps do not show the conditions around your adhesive drop.</p>
+      </div>
+
+      <div class="comely-climate__result" aria-live="polite" aria-atomic="true">
+        <div class="comely-climate__result-top">
+          <div class="comely-climate__status"><span aria-hidden="true"></span> LIVE ROOM CHECK</div>
+          <p class="comely-climate__step">02</p>
+        </div>
+        <h2 data-result-title>Balanced conditions</h2>
+        <p class="comely-climate__result-summary" data-result-summary>Both readings sit inside the standard 23–27°C and 45%–55% RH reference range.</p>
+        <p class="comely-climate__reading" data-result-condition>25°C / 50% RH. Temperature and humidity are both in the standard reference range.</p>
+
+        <div class="comely-climate__behavior">
+          <p class="comely-climate__result-label">Likely behavior</p>
+          <p data-result-behavior>The room is in the standard reference range, where curing behavior should feel the most familiar and easier to monitor.</p>
+        </div>
+
+        <div class="comely-climate__actions">
+          <div>
+            <p class="comely-climate__action-number">1</p>
+            <h3>Application pace</h3>
+            <p data-result-pace>The 0.5s option offers slightly more placement time. Keep movements deliberate and check that attachment happens before the drop becomes stringy.</p>
+          </div>
+          <div>
+            <p class="comely-climate__action-number">2</p>
+            <h3>Room control</h3>
+            <p data-result-room>Keep the room stable and recheck the hygrometer during the appointment.</p>
+          </div>
+          <div>
+            <p class="comely-climate__action-number">3</p>
+            <h3>Adhesive handling</h3>
+            <p data-result-handling>Use a fresh adhesive drop, keep the nozzle clean, and watch the drop for changes in texture during the service.</p>
+          </div>
+        </div>
+
+        <p class="comely-climate__disclaimer">This calculator provides working guidance, not a performance guarantee. Follow the product label and confirm actual room conditions with a hygrometer.</p>
+      </div>
+    </div>
+
+    <section class="comely-climate__how" aria-labelledby="ClimateHowTitle-github">
+      <div class="comely-climate__section-heading">
+        <p>HOW TO USE IT</p>
+        <h2 id="ClimateHowTitle-github">Check the room before you open the bottle</h2>
+      </div>
+      <ol>
+        <li><span>1</span><div><h3>Read the room</h3><p>Place a digital hygrometer near the lash bed and allow the reading to stabilize.</p></div></li>
+        <li><span>2</span><div><h3>Enter both values</h3><p>Temperature and humidity work together. One reading alone cannot explain adhesive behavior.</p></div></li>
+        <li><span>3</span><div><h3>Adjust, then recheck</h3><p>Make small room changes, wait for conditions to settle, and confirm the new reading before application.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="comely-climate__science" aria-labelledby="ClimateScienceTitle-github">
+      <div class="comely-climate__section-heading">
+        <p>THE TWO VARIABLES</p>
+        <h2 id="ClimateScienceTitle-github">What temperature and humidity change</h2>
+      </div>
+      <div class="comely-climate__science-grid">
+        <article>
+          <p class="comely-climate__science-index">T</p>
+          <h3>How temperature affects lash adhesive</h3>
+          <p>Warmer conditions can make adhesive feel faster and less forgiving during placement. Cooler conditions can slow the reaction and make the adhesive feel thicker. Stable room temperature matters more than chasing a single perfect number.</p>
+          <a href="https://comelylash.com/blogs/lash-artist-guides/how-temperature-humidity-affect-lash-extension-glue">Read the adhesive science guide <span aria-hidden="true">→</span></a>
+        </article>
+        <article>
+          <p class="comely-climate__science-index">RH</p>
+          <h3>How humidity affects lash adhesive</h3>
+          <p>Cyanoacrylate adhesive uses moisture in the air to cure. Higher humidity generally speeds that process, while lower humidity generally slows it. Fast curing is not always better if the adhesive begins setting before attachment.</p>
+          <a href="https://comelylash.com/blogs/lash-artist-guides/lash-adhesive-humidity-temperature-guide">Open the humidity and temperature guide <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+      <div class="comely-climate__hygrometer">
+        <div>
+          <p class="comely-climate__hygrometer-label">WHY A HYGROMETER MATTERS</p>
+          <h3>Measure where the adhesive is working</h3>
+        </div>
+        <p>Room conditions can change during a long appointment as air conditioning cycles, doors open, or several people share the space. Keep the hygrometer near the working area and check it again if the adhesive begins behaving differently.</p>
+      </div>
+    </section>
+
+    <aside class="comely-climate__product" aria-label="COMELYLASH All-Climate Lash Adhesive">
+      <div>
+        <p>18–28°C · 25%–75% RH</p>
+        <h2>One adhesive, a wider working range</h2>
+        <p>COMELYLASH All-Climate Lash Adhesive is available in 0.3s and 0.5s options for professional application.</p>
+      </div>
+      <a href="https://comelylash.com/products/all-climate-lash-adhesive">Shop All-Climate Adhesive <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <section class="comely-climate__faq" aria-labelledby="ClimateFaqTitle-github">
+      <div class="comely-climate__section-heading">
+        <p>QUICK ANSWERS</p>
+        <h2 id="ClimateFaqTitle-github">Lash adhesive climate FAQ</h2>
+      </div>
+      <div class="comely-climate__faq-list">
+        <details>
+          <summary>What is the ideal temperature and humidity for lash adhesive?</summary>
+          <p>Always follow the range stated for your adhesive. COMELYLASH All-Climate Lash Adhesive has a verified working range of 18–28°C and 25%–75% RH, while its standard reference range is 23–27°C and 45%–55% RH.</p>
+        </details>
+        <details>
+          <summary>What happens when lash-room humidity is too low?</summary>
+          <p>Low humidity can slow cyanoacrylate curing. The adhesive may stay workable longer, but attachment can become inconsistent if the artist moves before the bond begins to set.</p>
+        </details>
+        <details>
+          <summary>What happens when lash-room humidity is too high?</summary>
+          <p>High humidity can accelerate curing and shorten placement time. If the adhesive begins setting before it meets the natural lash, the bond may not form as intended.</p>
+        </details>
+        <details>
+          <summary>Does all-weather lash adhesive mean I can ignore room conditions?</summary>
+          <p>No. All-weather usually means the adhesive has a wider recommended working range. Lash artists should still measure temperature and humidity, follow the product label, and adjust their room when readings fall outside that range.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the ideal temperature and humidity for lash adhesive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always follow the range stated for your adhesive. COMELYLASH All-Climate Lash Adhesive has a verified working range of 18–28°C and 25%–75% RH, while its standard reference range is 23–27°C and 45%–55% RH."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when lash-room humidity is too low?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Low humidity can slow cyanoacrylate curing. The adhesive may stay workable longer, but attachment can become inconsistent if the artist moves before the bond begins to set."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when lash-room humidity is too high?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High humidity can accelerate curing and shorten placement time. If the adhesive begins setting before it meets the natural lash, the bond may not form as intended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does all-weather lash adhesive mean I can ignore room conditions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All-weather usually means the adhesive has a wider recommended working range. Lash artists should still measure temperature and humidity, follow the product label, and adjust their room when readings fall outside that range."
+      }
+    }
+  ]
+}
+  </script>
+</section>
+
+</body>
+</html>
