@@ -112,7 +112,7 @@
 
     assertReading(temperatureC, LIMITS.control.temperatureMin, LIMITS.control.temperatureMax, 'Temperature');
     assertReading(humidity, LIMITS.control.humidityMin, LIMITS.control.humidityMax, 'Humidity');
-    if (speed !== '0.3' && speed !== '0.5') throw new RangeError('Speed must be 0.3 or 0.5.');
+    if (speed !== '0.3' && speed !== '0.5' && speed !== '1') throw new RangeError('Speed must be 0.3, 0.5, or 1.');
 
     var tempBand = temperatureBand(temperatureC);
     var humidBand = humidityBand(humidity);
@@ -134,7 +134,9 @@
 
     var pace = speed === '0.3'
       ? 'The 0.3s option leaves less placement time. Work only at a pace that lets the extension meet the natural lash before the adhesive begins to set.'
-      : 'The 0.5s option offers slightly more placement time. Keep movements deliberate and check that attachment happens before the drop becomes stringy.';
+      : (speed === '0.5'
+        ? 'The 0.5s option offers slightly more placement time. Keep movements deliberate and check that attachment happens before the drop becomes stringy.'
+        : 'The 1s option offers the most placement time of these three choices. Keep the extension steady and confirm placement before releasing.');
 
     return {
       level: level,
