@@ -1,0 +1,884 @@
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: #181818;
+  background: #f6f7f8;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button, input { font: inherit; }
+a { color: inherit; }
+
+.section-comely-climate-calculator {
+  --climate-bg: #f6f7f8;
+  --climate-panel: #ffffff;
+  --climate-ink: #181818;
+  --climate-muted: #666a73;
+  --climate-line: #dfe2e7;
+  --climate-soft: #eef0f3;
+  --climate-blue: #2f6bff;
+  --climate-blue-text: #2459d8;
+  --climate-blue-soft: #eaf0ff;
+  background: var(--climate-bg);
+}
+
+.comely-climate,
+.comely-climate * {
+  box-sizing: border-box;
+}
+
+.comely-climate {
+  color: var(--climate-ink);
+  background: var(--climate-bg);
+  width: 100%;
+  overflow: hidden;
+}
+
+.comely-climate__shell {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 22px clamp(20px, 4vw, 64px) 88px;
+}
+
+.comely-climate__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: #656971;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.comely-climate__breadcrumb a {
+  color: var(--climate-ink);
+  text-decoration: none;
+}
+
+.comely-climate__breadcrumb span:last-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comely-climate__hero {
+  max-width: 920px;
+  padding: clamp(56px, 8vw, 112px) 0 clamp(42px, 6vw, 76px);
+}
+
+.comely-climate__eyebrow,
+.comely-climate__section-heading > p,
+.comely-climate__hygrometer-label {
+  margin: 0 0 14px;
+  color: var(--climate-blue-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.comely-climate__hero h1 {
+  max-width: 880px;
+  margin: 0;
+  font-size: clamp(42px, 6.4vw, 88px);
+  font-weight: 650;
+  letter-spacing: -.055em;
+  line-height: .97;
+}
+
+.comely-climate__intro {
+  max-width: 780px;
+  margin: 28px 0 0;
+  color: #40434a;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.48;
+}
+
+.comely-climate__range-note {
+  margin: 20px 0 0;
+  color: var(--climate-muted);
+  font-size: 14px;
+}
+
+.comely-climate__range-note strong {
+  color: var(--climate-ink);
+}
+
+.comely-climate__tool {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.comely-climate__controls,
+.comely-climate__result {
+  border-radius: 26px;
+  padding: clamp(24px, 3.2vw, 46px);
+}
+
+.comely-climate__controls {
+  background: var(--climate-panel);
+  border: 1px solid #e7e9ed;
+  box-shadow: 0 18px 50px rgba(26, 32, 44, .06);
+}
+
+.comely-climate__card-heading,
+.comely-climate__result-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.comely-climate__card-heading .comely-climate__step {
+  order: 2;
+}
+
+.comely-climate__step {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #656971;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.comely-climate__card-heading h2,
+.comely-climate__result h2,
+.comely-climate__section-heading h2,
+.comely-climate__product h2 {
+  margin: 0;
+  letter-spacing: -.035em;
+}
+
+.comely-climate__card-heading h2 {
+  font-size: clamp(25px, 2.6vw, 34px);
+  line-height: 1.1;
+}
+
+.comely-climate__card-heading div > p {
+  margin: 10px 0 0;
+  color: var(--climate-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.comely-climate__field {
+  position: relative;
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--climate-line);
+}
+
+.comely-climate__field-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.comely-climate__field label,
+.comely-climate__speed legend {
+  color: #35383e;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.comely-climate__field output,
+.comely-climate__temperature-entry {
+  color: var(--climate-ink);
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -.04em;
+}
+
+.comely-climate__temperature-entry {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--climate-line);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.comely-climate__temperature-entry input {
+  width: 58px;
+  min-width: 0;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: var(--climate-ink);
+  background: transparent;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-align: right;
+}
+
+.comely-climate__temperature-entry:focus-within {
+  border-color: var(--climate-blue);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, .15);
+}
+
+.comely-climate__temperature-entry span {
+  margin-left: 2px;
+}
+
+.comely-climate__unit-toggle {
+  display: inline-flex;
+  margin-top: 14px;
+  padding: 3px;
+  border: 1px solid var(--climate-line);
+  border-radius: 12px;
+  background: var(--climate-soft);
+}
+
+.comely-climate__unit-toggle button {
+  min-width: 48px;
+  min-height: 44px;
+  padding: 8px 13px;
+  border: 0;
+  border-radius: 9px;
+  color: #62666f;
+  background: transparent;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.comely-climate__unit-toggle button[aria-pressed="true"] {
+  color: #ffffff;
+  background: var(--climate-ink);
+}
+
+.comely-climate__range {
+  width: 100%;
+  height: 24px;
+  margin: 18px 0 2px;
+  padding: 0;
+  accent-color: var(--climate-blue);
+  cursor: pointer;
+}
+
+.comely-climate__range::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 999px;
+  background: #d9dde5;
+}
+
+.comely-climate__range::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: var(--climate-blue);
+  box-shadow: 0 1px 6px rgba(20, 30, 60, .28);
+  -webkit-appearance: none;
+}
+
+.comely-climate__scale {
+  display: flex;
+  justify-content: space-between;
+  color: #656971;
+  font-size: 11px;
+}
+
+.comely-climate__speed {
+  min-width: 0;
+  padding-inline: 0;
+  padding-bottom: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.comely-climate__speed-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.comely-climate__speed-options label {
+  position: relative;
+  cursor: pointer;
+}
+
+.comely-climate__speed-options input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.comely-climate__speed-options span {
+  display: flex;
+  min-height: 62px;
+  padding: 11px 15px;
+  border: 1px solid var(--climate-line);
+  border-radius: 14px;
+  background: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comely-climate__speed-options strong {
+  color: var(--climate-ink);
+  font-size: 16px;
+}
+
+.comely-climate__speed-options small {
+  margin-top: 2px;
+  color: #62666f;
+  font-size: 11px;
+}
+
+.comely-climate__speed-options input:checked + span {
+  border-color: var(--climate-blue);
+  background: var(--climate-blue-soft);
+  box-shadow: inset 0 0 0 1px var(--climate-blue);
+}
+
+.comely-climate__control-note {
+  margin: 24px 0 0;
+  padding: 15px 17px;
+  border-radius: 13px;
+  color: #656971;
+  background: var(--climate-bg);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.comely-climate__control-note strong {
+  color: var(--climate-ink);
+}
+
+.comely-climate__result {
+  display: flex;
+  min-height: 100%;
+  color: #ffffff;
+  background: var(--climate-ink);
+  flex-direction: column;
+}
+
+.comely-climate__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+}
+
+.comely-climate__status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #55d986;
+  box-shadow: 0 0 0 5px rgba(85, 217, 134, .12);
+}
+
+.comely-climate[data-result-level="wide"] .comely-climate__status span {
+  background: #76a2ff;
+  box-shadow: 0 0 0 5px rgba(118, 162, 255, .14);
+}
+
+.comely-climate[data-result-level="outside"] .comely-climate__status span {
+  background: #ffbc5c;
+  box-shadow: 0 0 0 5px rgba(255, 188, 92, .14);
+}
+
+.comely-climate__result .comely-climate__step {
+  color: #9aa0aa;
+}
+
+.comely-climate__result h2 {
+  max-width: 650px;
+  margin-top: clamp(50px, 6vw, 90px);
+  color: #ffffff;
+  font-size: clamp(36px, 4.5vw, 62px);
+  line-height: 1.02;
+}
+
+.comely-climate__result-summary {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #c7cad0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.comely-climate__reading {
+  margin: 28px 0 0;
+  padding: 15px 17px;
+  border: 1px solid #3a3d43;
+  border-radius: 14px;
+  color: #f4f5f6;
+  background: #232428;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.comely-climate__behavior {
+  margin-top: 28px;
+}
+
+.comely-climate__result-label {
+  margin: 0 0 8px;
+  color: #7fa7ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.comely-climate__behavior > p:last-child {
+  margin: 0;
+  color: #e7e8ea;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.comely-climate__actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 32px;
+  overflow: hidden;
+  border: 1px solid #393b40;
+  border-radius: 16px;
+  background: #393b40;
+}
+
+.comely-climate__actions > div {
+  padding: 19px;
+  background: #222326;
+}
+
+.comely-climate__action-number {
+  margin: 0 0 24px;
+  color: #9aa0aa;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.comely-climate__actions h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.comely-climate__actions div > p:last-child {
+  margin: 8px 0 0;
+  color: #b9bcc2;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.comely-climate__disclaimer {
+  margin: 24px 0 0;
+  color: #8f9299;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.comely-climate__how,
+.comely-climate__science,
+.comely-climate__faq {
+  padding-top: clamp(82px, 10vw, 132px);
+}
+
+.comely-climate__section-heading {
+  max-width: 760px;
+}
+
+.comely-climate__section-heading h2 {
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.04;
+}
+
+.comely-climate__how ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 38px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comely-climate__how li {
+  display: grid;
+  min-height: 220px;
+  padding: 26px;
+  border: 1px solid #e4e6ea;
+  border-radius: 20px;
+  background: #ffffff;
+  grid-template-rows: auto 1fr;
+}
+
+.comely-climate__how li > span {
+  color: var(--climate-blue-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.comely-climate__how li > div {
+  align-self: end;
+}
+
+.comely-climate__how h3,
+.comely-climate__science h3,
+.comely-climate__hygrometer h3 {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: -.025em;
+}
+
+.comely-climate__how li p,
+.comely-climate__science article > p,
+.comely-climate__hygrometer > p {
+  margin: 10px 0 0;
+  color: var(--climate-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.comely-climate__science-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.comely-climate__science article {
+  min-height: 360px;
+  padding: clamp(26px, 3vw, 40px);
+  border-radius: 22px;
+  background: #ffffff;
+}
+
+.comely-climate__science-index {
+  width: 48px;
+  height: 48px;
+  margin: 0 0 80px !important;
+  border-radius: 50%;
+  color: var(--climate-blue-text) !important;
+  background: var(--climate-blue-soft);
+  font-size: 12px !important;
+  font-weight: 700;
+  line-height: 48px !important;
+  text-align: center;
+}
+
+.comely-climate__science article a {
+  display: inline-flex;
+  min-height: 44px;
+  margin-top: 22px;
+  color: var(--climate-ink);
+  font-size: 13px;
+  font-weight: 650;
+  align-items: center;
+  gap: 8px;
+  text-underline-offset: 4px;
+}
+
+.comely-climate__hygrometer {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 40px;
+  margin-top: 14px;
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid #dde1e7;
+  border-radius: 22px;
+  align-items: end;
+}
+
+.comely-climate__hygrometer-label {
+  margin-bottom: 12px;
+}
+
+.comely-climate__product {
+  display: flex;
+  min-height: 310px;
+  margin-top: clamp(82px, 10vw, 132px);
+  padding: clamp(34px, 5vw, 70px);
+  border-radius: 26px;
+  color: #ffffff;
+  background: var(--climate-ink);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.comely-climate__product div {
+  max-width: 720px;
+}
+
+.comely-climate__product div > p:first-child {
+  margin: 0 0 16px;
+  color: #7fa7ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.comely-climate__product h2 {
+  color: #ffffff;
+  font-size: clamp(34px, 4.7vw, 64px);
+  line-height: 1;
+}
+
+.comely-climate__product h2 + p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #bfc2c8;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.comely-climate__product > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 13px 18px;
+  border-radius: 12px;
+  color: var(--climate-ink);
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.comely-climate__faq-list {
+  margin-top: 38px;
+  border-top: 1px solid #d7dae0;
+}
+
+.comely-climate__faq details {
+  border-bottom: 1px solid #d7dae0;
+}
+
+.comely-climate__faq summary {
+  position: relative;
+  min-height: 72px;
+  padding: 23px 54px 23px 0;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 650;
+  line-height: 1.35;
+  list-style: none;
+  cursor: pointer;
+}
+
+.comely-climate__faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.comely-climate__faq summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--climate-ink);
+  background: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.comely-climate__faq details[open] summary::after {
+  content: '−';
+}
+
+.comely-climate__faq details > p {
+  max-width: 820px;
+  margin: -4px 0 0;
+  padding: 0 54px 25px 0;
+  color: var(--climate-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.comely-climate button:focus-visible,
+.comely-climate input:focus-visible,
+.comely-climate a:focus-visible,
+.comely-climate summary:focus-visible {
+  outline: 3px solid var(--climate-blue);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .comely-climate__breadcrumb a:hover,
+  .comely-climate__science article a:hover {
+    color: var(--climate-blue);
+  }
+
+  .comely-climate__product > a:hover {
+    color: #ffffff;
+    background: var(--climate-blue);
+  }
+}
+
+@media (max-width: 1023px) {
+  .comely-climate__tool {
+    grid-template-columns: 1fr;
+  }
+
+  .comely-climate__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .comely-climate__action-number {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .comely-climate__shell {
+    padding: 16px 14px 64px;
+  }
+
+  .comely-climate__breadcrumb {
+    padding-inline: 2px;
+    font-size: 11px;
+  }
+
+  .comely-climate__hero {
+    padding: 48px 2px 34px;
+  }
+
+  .comely-climate__hero h1 {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .comely-climate__intro {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .comely-climate__range-note {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .comely-climate__tool {
+    gap: 12px;
+  }
+
+  .comely-climate__controls,
+  .comely-climate__result {
+    padding: 23px 20px;
+    border-radius: 20px;
+  }
+
+  .comely-climate__card-heading h2 {
+    font-size: 25px;
+  }
+
+  .comely-climate__field {
+    margin-top: 26px;
+    padding-top: 21px;
+  }
+
+  .comely-climate__result h2 {
+    margin-top: 52px;
+    font-size: 38px;
+  }
+
+  .comely-climate__result-summary,
+  .comely-climate__behavior > p:last-child {
+    font-size: 14px;
+  }
+
+  .comely-climate__actions > div {
+    padding: 17px;
+  }
+
+  .comely-climate__how,
+  .comely-climate__science,
+  .comely-climate__faq {
+    padding-top: 78px;
+  }
+
+  .comely-climate__how ol,
+  .comely-climate__science-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .comely-climate__how li {
+    min-height: 180px;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .comely-climate__science article {
+    min-height: 320px;
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .comely-climate__science-index {
+    margin-bottom: 64px !important;
+  }
+
+  .comely-climate__hygrometer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .comely-climate__product {
+    min-height: 430px;
+    margin-top: 78px;
+    padding: 28px 22px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .comely-climate__product > a {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .comely-climate__faq-list {
+    margin-top: 28px;
+  }
+
+  .comely-climate__faq summary {
+    min-height: 68px;
+    padding-right: 48px;
+    font-size: 16px;
+  }
+
+  .comely-climate__faq details > p {
+    padding-right: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .comely-climate__speed-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comely-climate * {
+    scroll-behavior: auto !important;
+  }
+}
