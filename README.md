@@ -11,7 +11,7 @@ The calculator helps lash artists compare actual room readings with the verified
 - Celsius control: 10–35°C in 1°C increments
 - Fahrenheit control: 50–95°F in 1°F increments
 - Relative humidity: 10%–90% RH
-- Adhesive setting-time options: 0.3s and 0.5s
+- Adhesive setting-time options: 0.3s, 0.5s, and 1s
 - Direct numeric temperature entry
 - Accessible live results and responsive mobile layout
 
